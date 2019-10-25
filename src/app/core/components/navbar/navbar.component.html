@@ -1,0 +1,36 @@
+<nav class="navbar navbar-light navbar-expand-lg">
+  <a class="navbar-brand" href="#">Logo</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#mainMenu"
+    aria-controls="mainMenu"
+    [attr.aria-expanded]="!isCollapsed"
+    aria-label="Toggle navigation"
+    (click)="onCollapse()"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="navbar-links collapse navbar-collapse" id="mainMenu" [ngbCollapse]="!isCollapsed">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Sobre</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">O Mercado</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Especiais</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Curiosidades</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link d-flex align-items-center"> <span class="icon-user"></span>&nbsp; Login </a>
+      </li>
+    </ul>
+  </div>
+</nav>

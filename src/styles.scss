@@ -1,1 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/scss/bootstrap.scss";
+@import "assets/styles/icons";
+@import "assets/styles/buttons";
+@import "assets/styles/theme";
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 17px;
+  background-color: $background-color;
+}

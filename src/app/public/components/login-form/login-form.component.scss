@@ -1,0 +1,24 @@
+@import "../../../../assets/styles/theme";
+
+.login-form {
+  h2 {
+    color: $primary-color;
+  }
+
+  label {
+    color: $text-gray;
+    font-weight: bold;
+  }
+
+  input {
+    background: none;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid $text-gray;
+
+    &:focus {
+      box-shadow: none;
+      border-color: $primary-color;
+    }
+  }
+}

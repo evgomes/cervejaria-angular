@@ -1,0 +1,14 @@
+@import "theme";
+
+.btn {
+  height: 3.5rem;
+  border-radius: 3em;
+  width: 250px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.btn-primary {
+  background-color: $primary-color;
+}

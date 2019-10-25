@@ -1,0 +1,40 @@
+@import "../../../../assets/styles/theme";
+@import "~bootstrap/scss/_functions.scss";
+@import "~bootstrap/scss/_variables.scss";
+@import "~bootstrap/scss/_mixins.scss";
+
+.navbar {
+  background-color: $primary-color;
+  color: $text-white;
+  min-height: 60px;
+
+  &,
+  .navbar-brand {
+    font-size: 0.8rem;
+  }
+
+  a {
+    color: $text-white;
+    text-transform: uppercase;
+    padding: 0 1em;
+
+    @include media-breakpoint-down(md) {
+      padding: 0;
+    }
+
+    &:hover {
+      color: $text-white;
+      font-weight: bold;
+    }
+  }
+
+  .icon-user {
+    font-size: 1.1rem;
+  }
+
+  @include media-breakpoint-up(lg) {
+    .navbar-links {
+      margin-left: 5em;
+    }
+  }
+}
