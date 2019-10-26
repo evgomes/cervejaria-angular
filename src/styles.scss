@@ -1,12 +1,14 @@
 @import "~bootstrap/scss/bootstrap.scss";
 @import "assets/styles/icons";
 @import "assets/styles/buttons";
-@import "assets/styles/theme";
+@import "assets/styles/colors";
+@import "assets/styles/typography";
+@import "assets/styles/forms";
 
 html,
 body {
   margin: 0;
   padding: 0;
   font-size: 17px;
-  background-color: $background-color;
+  background-color: $secondary;
 }

@@ -1,0 +1,26 @@
+@import "../../../../assets/styles/colors";
+
+.product-form {
+  .product-image {
+    display: flex;
+    width: 100%;
+  }
+
+  .image {
+    width: auto;
+  }
+
+  .input {
+    width: 100%;
+    margin-left: 1em;
+    color: $light-gray;
+
+    label {
+      padding: 0.5em 1em;
+      border: 1px solid $light-gray;
+      border-radius: 5em;
+      color: $light-gray !important;
+      margin-top: 0.5em;
+    }
+  }
+}

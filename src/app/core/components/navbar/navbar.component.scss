@@ -1,20 +1,24 @@
-@import "../../../../assets/styles/theme";
+@import "../../../../assets/styles/colors";
 @import "~bootstrap/scss/_functions.scss";
 @import "~bootstrap/scss/_variables.scss";
 @import "~bootstrap/scss/_mixins.scss";
 
 .navbar {
-  background-color: $primary-color;
-  color: $text-white;
+  background-color: $primary;
+  color: $white;
   min-height: 60px;
 
   &,
   .navbar-brand {
     font-size: 0.8rem;
+
+    span {
+      font-size: 1.8rem;
+    }
   }
 
   a {
-    color: $text-white;
+    color: $white;
     text-transform: uppercase;
     padding: 0 1em;
 
@@ -23,7 +27,7 @@
     }
 
     &:hover {
-      color: $text-white;
+      color: $white;
       font-weight: bold;
     }
   }

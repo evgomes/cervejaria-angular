@@ -1,0 +1,29 @@
+@import "../../../../assets/styles/colors";
+
+.app-breadcrumb {
+  width: 100%;
+  background-color: $white;
+
+  ol {
+    background-color: $white;
+
+    li {
+      a,
+      a:hover {
+        color: $primary;
+        text-decoration: none;
+      }
+    }
+
+    li:first-child {
+      a:first-child {
+        font-weight: bold;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .breadcrumb-item + .breadcrumb-item::before {
+    content: ">";
+  }
+}

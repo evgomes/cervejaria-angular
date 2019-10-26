@@ -1,0 +1,7 @@
+<nav class="app-breadcrumb" aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li *ngFor="let partial of uriPartials" class="breadcrumb-item" [class.active]="partial.active">
+      <a [href]="partial.link">{{ partial.title }}</a>
+    </li>
+  </ol>
+</nav>

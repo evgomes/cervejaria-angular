@@ -1,14 +1,34 @@
-@import "theme";
+@import "colors";
 
 .btn {
-  height: 3.5rem;
+  height: 3rem;
   border-radius: 3em;
   width: 250px;
   font-size: 1rem;
   text-transform: uppercase;
   font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .btn-primary {
-  background-color: $primary-color;
+  background-color: $primary;
+}
+
+.btn-secondary {
+  background-color: $light-gray !important;
+  color: $white !important;
+
+  &:hover {
+    background-color: $gray !important;
+  }
+}
+
+.btn-success {
+  background-color: $green;
 }

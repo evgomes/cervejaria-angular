@@ -1,0 +1,34 @@
+@import "colors";
+
+form {
+  label {
+    color: $light-gray !important;
+    font-weight: bold !important;
+  }
+
+  input,
+  select {
+    background: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    border-bottom: 1px solid $gray !important;
+  }
+
+  input {
+    &:focus {
+      box-shadow: none !important;
+      border-color: $primary !important;
+    }
+  }
+
+  .input-group-prepend,
+  .input-group-text {
+    background: none !important;
+    border: none !important;
+  }
+
+  .input-group-text {
+    border-bottom: 1px solid $gray !important;
+    border-radius: 0 !important;
+  }
+}

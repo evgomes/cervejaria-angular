@@ -1,0 +1,38 @@
+@import "../../../../assets/styles/colors";
+
+.product-card {
+  .product-card-row {
+    margin: 0 0.5em 0 0.5em;
+
+    div {
+      height: 100%;
+    }
+  }
+
+  .product-title {
+    font-weight: bold;
+    color: $primary;
+  }
+
+  .product-price,
+  .product-type,
+  .product-description {
+    color: $gray;
+  }
+
+  .product-options {
+    div {
+      height: 100%;
+      font-size: 1.3rem;
+    }
+
+    .edit {
+      color: $primary;
+    }
+
+    .delete {
+      color: $red;
+      margin-left: 0.5em;
+    }
+  }
+}
