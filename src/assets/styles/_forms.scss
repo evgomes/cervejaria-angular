@@ -21,6 +21,11 @@ form {
     }
   }
 
+  input:disabled,
+  button:disabled {
+    cursor: not-allowed !important;
+  }
+
   .input-group-prepend,
   .input-group-text {
     background: none !important;

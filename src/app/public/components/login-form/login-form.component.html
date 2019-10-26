@@ -1,16 +1,26 @@
 <div class="login-form">
   <h2>Login</h2>
   <div class="mt-5">
-    <form>
+    <form #form="ngForm" (ngSubmit)="login()">
       <div class="form-group">
         <label for="email">Email</label>
-        <input id="email" name="email" type="email" class="form-control" />
+        <input #email="ngModel" [(ngModel)]="user.email" id="email" name="email" type="email" class="form-control" email="true" required />
+        <div *ngIf="email.invalid && email.touched" class="text-danger">
+          <div *ngIf="email.errors">
+            Digite um e-mail válido.
+          </div>
+        </div>
       </div>
       <div class="form-group">
         <label for="password">Senha</label>
-        <input id="password" name="password" type="password" class="form-control" />
+        <input #password="ngModel" [(ngModel)]="user.password" id="password" name="password" type="password" class="form-control" required />
+        <div *ngIf="password.invalid && password.touched" class="text-danger">
+          <div *ngIf="password.errors">
+            Digite a senha.
+          </div>
+        </div>
       </div>
-      <button type="submit" class="btn btn-primary mt-5">Entrar</button>
+      <button type="submit" class="btn btn-primary mt-5" [disabled]="form.invalid">Entrar</button>
     </form>
   </div>
 </div>
