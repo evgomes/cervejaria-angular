@@ -1,5 +1,5 @@
 <nav class="navbar navbar-light navbar-expand-lg">
-  <a class="navbar-brand" href="#">
+  <a routerLink="/" class="navbar-brand">
     <span class="icon icon-beer"></span>
   </a>
   <button
@@ -15,7 +15,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="navbar-links collapse navbar-collapse" id="mainMenu" [ngbCollapse]="!isCollapsed">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav mr-auto" *ngIf="!loggedIn">
       <li class="nav-item">
         <a class="nav-link" href="#">Sobre</a>
       </li>
@@ -29,7 +29,7 @@
         <a class="nav-link" href="#">Curiosidades</a>
       </li>
     </ul>
-    <ul class="navbar-nav">
+    <ul class="navbar-nav" *ngIf="!loggedIn">
       <li class="nav-item">
         <a class="nav-link d-flex align-items-center"> <span class="icon-user"></span>&nbsp; Login </a>
       </li>

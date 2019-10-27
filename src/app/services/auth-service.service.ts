@@ -1,33 +1,24 @@
+import { NgRedux } from "@angular-redux/store";
 import { Injectable } from "@angular/core";
-import { of, Observable } from "rxjs";
-import User from "../models/user";
+import { handleSignInUser, handleSignOutUser } from "src/store/actions";
+import { IState } from "./../../store/state";
 
 @Injectable({
   providedIn: "root"
 })
 export class AuthService {
-  public get user(): User {
-    const user = localStorage.getItem("user");
+  constructor(private ngRedux: NgRedux<IState>) {}
 
-    if (user == null) {
-      return null;
-    }
-
-    return { email: user };
-  }
-
-  login(email: string, password: string): Observable<User> {
-    /* Aqui iria no backend para fazer as validações dos dados do usuário e receberia um token em caso de sucesso.
-     * Para o exemplo, apenas seto no localstorage os dados do usuário como se tivesse funcionado a autenticação, sem um token, e
-     * retorno uma Observable simulando a operação assíncrona.
+  login(email: string, password: string) {
+    /* Aqui iria no backend para fazer as validações dos dados do usuário e receberia um token em caso de sucesso, e provavelmente guardaria o token no
+     * localstorage. Como para esse teste estou usando Redux, apenas dou dispatch em uma action, e o reducer da aplicação seta o usuário no state.
      */
-    localStorage.setItem("user", email);
 
     const user = { email };
-    return of(user);
+    this.ngRedux.dispatch(handleSignInUser(user));
   }
 
   logout() {
-    localStorage.removeItem("user");
+    this.ngRedux.dispatch(handleSignOutUser());
   }
 }
