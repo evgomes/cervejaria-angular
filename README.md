@@ -1,27 +1,26 @@
-# LojaCerveja
+## Cervejaria
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.14.
+Aplicação de exemplo desenvolvida em Angular 8 para controle de dados de uma cervejaria online.
 
-## Development server
+![Tela de login](https://raw.githubusercontent.com/evgomes/cervejaria-angular/master/imagens/login.png)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+![Tela de listagem](https://raw.githubusercontent.com/evgomes/cervejaria-angular/master/imagens/listagem.png)
 
-## Code scaffolding
+## Bibliotecas utilizadas
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- [Redux](https://redux.js.org/) (gerenciamento de estado da aplicação);
+- [@angular-redux/store](https://github.com/angular-redux/store) (binding do Redux para Angular)
+- [Bootstrap 4](https://getbootstrap.com/) (framework CSS mobile-first)
+- [ngx-mask](https://www.npmjs.com/package/ngx-mask) (biblioteca para trabalhar com máscaras)
+- [ngx-toastr](https://www.npmjs.com/package/ngx-toastr) (uso de toasts para notificações)
 
-## Build
+## Como testar
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Faça o download do repositório utilizando `git clone https://github.com/evgomes/cervejaria-angular.git` e execute os seguintes comandos no terminal / prompt de comando, em sequência:
 
-## Running unit tests
+```
+npm install
+npm run start
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+A aplicação será inicializada e você poderá acessá-la no link `http://localhost:4200/`.
