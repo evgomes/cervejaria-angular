@@ -50,7 +50,6 @@ export class ProductFormComponent implements OnInit, OnDestroy {
     // Como no exemplo não tenho um backend para fazer upload da imagem, leio a mesma como base64 e guardo na model, exibindo a imagem no campo
     // respectivo.
     const file: File = $event.target.files[0];
-    console.log(file.type);
     if (!file.type.includes("image/")) {
       $event.target.value = null;
       this.beer.imageBase64 = "";

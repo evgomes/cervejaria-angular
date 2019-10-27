@@ -6,8 +6,6 @@ import BeerType from "src/app/models/beer-type";
 import User from "src/app/models/user";
 
 export default function rootReducer(state: IState = INITIAL_STATE, action) {
-  console.log("state", state);
-
   switch (action.type) {
     case SIGNIN_USER:
       return handleSignInUser(state, action.user);
