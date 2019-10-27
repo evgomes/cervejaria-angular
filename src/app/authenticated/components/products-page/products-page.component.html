@@ -8,12 +8,17 @@
   </div>
   <div class="row mt-4">
     <div class="col-12">
-      <a class="btn btn-primary" href="#">Nova cerveja</a>
+      <a class="btn btn-primary" routerLink="/produtos/novo">Nova cerveja</a>
     </div>
   </div>
-  <div class="row mt-3">
-    <div class="col-12">
-      <product-card></product-card>
+  <div class="row mt-3" *ngIf="beers$ | async as beers">
+    <div class="col-12" *ngFor="let beer of beers">
+      <product-card [beer]="beer"></product-card>
+    </div>
+    <div class="col-12 mt-3" *ngIf="beers.length === 0">
+      <div class="alert alert-primary mb-0">
+        Nenhuma cerveja encontrada.
+      </div>
     </div>
   </div>
 </main>

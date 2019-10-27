@@ -35,4 +35,19 @@
       margin-left: 0.5em;
     }
   }
+
+  .img-beer {
+    max-width: 150px;
+    object-fit: cover;
+  }
+
+  a:hover,
+  button:hover {
+    cursor: pointer;
+  }
+
+  button {
+    background: none;
+    border: none;
+  }
 }

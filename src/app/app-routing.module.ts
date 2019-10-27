@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: "", component: LoginPageComponent }
 ];
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { onSameUrlNavigation: "reload" })],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}

@@ -1,15 +1,19 @@
 <div class="product-form">
   <div class="row">
     <div class="col-12">
-      <h2>Nova cerveja</h2>
+      <h2 *ngIf="beerId <= 0">Nova cerveja</h2>
+      <h2 *ngIf="beerId > 0">Editar cerveja</h2>
     </div>
   </div>
   <div class="row mt-4">
     <div class="col-12">
-      <form>
+      <form #form="ngForm" (ngSubmit)="save()">
         <div class="product-image">
-          <div class="image">
+          <div class="image" *ngIf="beer.imageBase64 == ''">
             <img src="https://via.placeholder.com/150" alt="imagem" />
+          </div>
+          <div class="image" *ngIf="beer.imageBase64 !== ''">
+            <img [src]="beer.imageBase64" [alt]="beer.name" class="img-fluid img-beer" />
           </div>
           <div class="input">
             <div>
@@ -17,24 +21,45 @@
             </div>
             <div>
               <label for="image">Upload de arquivo</label>
-              <input name="image" id="image" type="file" class="custom-file-input" />
+              <input
+                #image="ngModel"
+                [(ngModel)]="beer.imageBase64"
+                name="image"
+                id="image"
+                type="file"
+                class="custom-file-input"
+                accept="image/*"
+                [required]="beerId <= 0"
+                (change)="onChangeImage($event)"
+              />
+              <div *ngIf="image.invalid && image.touched" class="text-danger">
+                <div *ngIf="image.errors">
+                  Selecione uma imagem válida
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
         <div class="form-group mt-3">
           <label for="name">Nome</label>
-          <input type="text" name="nome" id="nome" class="form-control" />
+          <input #name="ngModel" [(ngModel)]="beer.name" type="text" name="name" id="name" class="form-control" required minlength="3" maxlength="20" />
+          <div *ngIf="name.invalid && name.touched" class="text-danger">
+            <div *ngIf="name.errors">
+              Digite um nome com no mínimo 3 e no máximo 20 caracteres.
+            </div>
+          </div>
         </div>
         <div class="form-group mt-3">
-          <label for="group">Grupo da Cerveja</label>
-          <select id="group" name="group" class="form-control">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
+          <label for="type">Grupo da Cerveja</label>
+          <select #type="ngModel" [(ngModel)]="beer.type" id="type" name="type" class="form-control" required>
+            <option *ngFor="let type of beerTypes$ | async" [ngValue]="type">{{ type.name }}</option>
           </select>
+          <div *ngIf="type.invalid && type.touched" class="text-danger">
+            <div *ngIf="type.errors">
+              Selecione o tipo de cerveja.
+            </div>
+          </div>
         </div>
         <div class="form-group mt-3">
           <label for="unitPrice">Custo unitário</label>
@@ -42,20 +67,51 @@
             <div class="input-group-prepend">
               <div class="input-group-text">R$</div>
             </div>
-            <input id="unitPrice" name="unitPrice" type="text" class="form-control" />
+            <input
+              #price="ngModel"
+              [(ngModel)]="beer.price"
+              id="unitPrice"
+              name="unitPrice"
+              type="text"
+              class="form-control"
+              placeholder="Exemplo: 5.40"
+              required
+              mask="0*.99"
+              [dropSpecialCharacters]="false"
+            />
+          </div>
+          <div *ngIf="price.invalid && price.touched" class="text-danger">
+            <div *ngIf="price.errors">
+              Digite um preço válido.
+            </div>
           </div>
         </div>
         <div class="form-group mt-3">
-          <label for="name">Descrição da cerveja</label>
-          <input type="text" name="nome" id="nome" class="form-control" aria-describedby="resumo" />
-          <small id="resumo" class="form-text text-muted">* Este campo aparecerá no resumo da cerveja.</small>
+          <label for="description">Descrição da cerveja</label>
+          <textarea
+            #description="ngModel"
+            [(ngModel)]="beer.description"
+            name="description"
+            id="description"
+            class="form-control"
+            rows="1"
+            aria-describedby="resume"
+            required
+            maxlength="100"
+          ></textarea>
+          <small id="resume" class="form-text text-muted">* Este campo aparecerá no resumo da cerveja.</small>
+          <div *ngIf="description.invalid && description.touched" class="text-danger">
+            <div *ngIf="description.errors">
+              Digite uma descrição de até 100 caracteres.
+            </div>
+          </div>
         </div>
         <div class="d-flex justify-content-between">
           <div>
-            <a class="btn btn-secondary">Voltar</a>
+            <a class="btn btn-secondary" routerLink="/produtos">Voltar</a>
           </div>
           <div>
-            <button type="submit" class="btn btn-primary">Criar</button>
+            <button type="submit" class="btn btn-primary" [disabled]="form.invalid">{{ beerId > 0 ? "Salvar" : "Criar" }}</button>
           </div>
         </div>
       </form>

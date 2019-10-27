@@ -1,21 +1,21 @@
-<div class="product-card card">
+<div class="product-card card mb-2">
   <div class="card-body">
-    <div class="row product-card-row w-100 flex-column align-items-center flex-md-row align-items-md-start justify-content-md-between">
+    <div class="row product-card-row w-100 flex-column align-items-center flex-lg-row align-items-lg-start justify-content-lg-between">
       <div class="product-image">
-        <img src="https://via.placeholder.com/150" alt="Image" class="img-fluid" />
+        <img [src]="beer.imageBase64" [alt]="beer.name" class="img-fluid img-beer" />
       </div>
-      <div class="product-title">title</div>
-      <div class="product-price">price</div>
-      <div class="product-type">beer-type</div>
-      <div class="product-description">description</div>
-      <div class="product-options d-flex flex-column justify-content-around align-items-end">
+      <div class="product-title">{{ beer.name }}</div>
+      <div class="product-price">{{ beer.price | currency: "BRL":true }}</div>
+      <div class="product-type">{{ beer.type.name }}</div>
+      <div class="product-description">{{ beer.description }}</div>
+      <div class="product-options d-flex flex-row flex-lg-column justify-content-around align-items-end">
         <div>
-          <a href="#" title="Editar">
+          <a routerLink="/produtos/editar/{{ beer.id }}" title="Editar" class="text-decoration-none">
             <span class="edit icon icon-pencil"></span>
           </a>
-          <a href="#" title="Excluir">
+          <button title="Excluir" (click)="excluir()" class="text-decoration-none">
             <span class="delete icon icon-bin"></span>
-          </a>
+          </button>
         </div>
         <div class="mt-3">
           <a href="#" class="btn btn-success">Fazer nova simulação</a>

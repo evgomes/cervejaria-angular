@@ -8,6 +8,11 @@
 
   .image {
     width: auto;
+
+    .img-beer {
+      max-width: 150px;
+      object-fit: cover;
+    }
   }
 
   .input {

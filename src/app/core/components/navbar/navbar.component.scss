@@ -43,6 +43,12 @@
     text-transform: uppercase;
   }
 
+  .nav-link.active {
+    color: $white;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+
   @include media-breakpoint-up(lg) {
     .navbar-links {
       margin-left: 5em;

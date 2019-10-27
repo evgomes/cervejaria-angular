@@ -2,6 +2,9 @@ import { NgRedux, NgReduxModule } from "@angular-redux/store";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { NgxMaskModule } from "ngx-mask";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { ToastrModule } from "ngx-toastr";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -15,7 +18,21 @@ import { store } from "../store/store";
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, CoreModule, PublicModule, AuthenticatedModule, NgbModule, NgReduxModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    CoreModule,
+    PublicModule,
+    AuthenticatedModule,
+    NgbModule,
+    NgReduxModule,
+    BrowserAnimationsModule,
+    NgxMaskModule.forRoot(),
+    ToastrModule.forRoot({
+      positionClass: "toast-bottom-right",
+      closeButton: true
+    })
+  ],
   providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
