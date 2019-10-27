@@ -36,6 +36,13 @@
     font-size: 1.1rem;
   }
 
+  .nav-link-button {
+    background: none;
+    border: none;
+    color: $white;
+    text-transform: uppercase;
+  }
+
   @include media-breakpoint-up(lg) {
     .navbar-links {
       margin-left: 5em;

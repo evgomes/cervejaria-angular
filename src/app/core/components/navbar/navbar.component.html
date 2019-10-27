@@ -34,5 +34,23 @@
         <a class="nav-link d-flex align-items-center"> <span class="icon-user"></span>&nbsp; Login </a>
       </li>
     </ul>
+
+    <!-- Logado -->
+    <ul class="navbar-nav mr-auto" *ngIf="loggedIn">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Dashboard</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" routerLink="/produtos">Produtos</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav" *ngIf="loggedIn">
+      <li class="nav-item d-flex align-items-center">
+        <a class="nav-link d-flex align-items-center"><span class="icon-user"></span>&nbsp; Olá {{ userToDisplay }}</a>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link nav-link-button d-flex align-items-center" (click)="logout()">Sair</button>
+      </li>
+    </ul>
   </div>
 </nav>

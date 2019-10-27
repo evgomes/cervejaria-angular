@@ -34,11 +34,9 @@ function handleSignInUser(state: IState, user: User): IState {
 }
 
 function handleSignOutUser(state: IState): IState {
-  const user = null;
-
   return {
     ...state,
-    user
+    user: null
   };
 }
 

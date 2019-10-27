@@ -1,3 +1,4 @@
+import { Router } from "@angular/router";
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { AuthService } from "src/app/services/auth-service.service";
 import { Subscription, Observable } from "rxjs";
@@ -11,30 +12,31 @@ import User from "src/app/models/user";
 })
 export class NavbarComponent implements OnInit, OnDestroy {
   @select(s => s.user) user$: Observable<User>;
-  subscription: Subscription;
+  userSubscription: Subscription;
 
   isCollapsed: boolean = false;
   loggedIn: boolean = false;
   userToDisplay: string = null;
 
-  constructor() {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit() {
-    this.subscription = this.user$.subscribe(user => {
-      console.log("nav user", user);
-
-      if (user != null) {
-        this.loggedIn = true;
-        this.userToDisplay = user.email;
-      }
+    this.userSubscription = this.user$.subscribe(user => {
+      this.loggedIn = user != null;
+      this.userToDisplay = user ? user.email : null;
     });
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+    this.userSubscription.unsubscribe();
   }
 
   onCollapse() {
     this.isCollapsed = !this.isCollapsed;
+  }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(["/"]);
   }
 }
